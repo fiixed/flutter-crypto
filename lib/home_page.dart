@@ -11,10 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
- 
   final List<MaterialColor> _colors = [Colors.blue, Colors.indigo, Colors.red];
-
-  
 
   Future<List> getCurrencies() async {
     String cryptoUrl = 'https://api.coinmarketcap.com/v1/ticker/?limit=50';
@@ -24,9 +21,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final defaultTheme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Crypto App'),
+        elevation: defaultTheme.platform == TargetPlatform.iOS ? 0.0 : 5.0,
       ),
       body: _cryptoWidget(),
     );

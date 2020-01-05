@@ -16,9 +16,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final defaultTheme = Theme.of(context);
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.pink,
+        primaryColor: defaultTheme.platform == TargetPlatform.iOS
+            ? Colors.grey[100]
+            : null,
       ),
       home: HomePage(_currencies),
     );
